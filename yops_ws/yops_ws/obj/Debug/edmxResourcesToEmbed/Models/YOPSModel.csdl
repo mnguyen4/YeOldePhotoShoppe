@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="yeoldephotoshoppeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="yeoldephotoshoppeEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="UserAccounts" EntityType="yeoldephotoshoppeModel.UserAccount" />
+    <EntitySet Name="Tokens" EntityType="yeoldephotoshoppeModel.Token" />
+    <AssociationSet Name="FK_Token_UserAccount" Association="yeoldephotoshoppeModel.FK_Token_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccounts" />
+      <End Role="Token" EntitySet="Tokens" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="pk" />
+    </Key>
+    <Property Name="pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="firstName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="lastName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Tokens" Relationship="yeoldephotoshoppeModel.FK_Token_UserAccount" FromRole="UserAccount" ToRole="Token" />
+  </EntityType>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="pk" />
+    </Key>
+    <Property Type="Int32" Name="pk" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="hash" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="userFk" Nullable="false" />
+    <NavigationProperty Name="UserAccount" Relationship="yeoldephotoshoppeModel.FK_Token_UserAccount" FromRole="Token" ToRole="UserAccount" />
+    <Property Type="DateTime" Name="accessTime" Nullable="false" Precision="7" />
+  </EntityType>
+  <Association Name="FK_Token_UserAccount">
+    <End Type="yeoldephotoshoppeModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+    <End Type="yeoldephotoshoppeModel.Token" Role="Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="pk" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="userFk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

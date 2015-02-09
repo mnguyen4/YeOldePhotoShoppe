@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="yeoldephotoshoppeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="yeoldephotoshoppeModelStoreContainer">
+          <EntitySet Name="Token" EntityType="yeoldephotoshoppeModel.Store.Token" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserAccount" EntityType="yeoldephotoshoppeModel.Store.UserAccount" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Token_UserAccount" Association="yeoldephotoshoppeModel.Store.FK_Token_UserAccount">
+            <End Role="UserAccount" EntitySet="UserAccount" />
+            <End Role="Token" EntitySet="Token" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="pk" />
+          </Key>
+          <Property Name="pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="hash" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="userFk" Type="int" Nullable="false" />
+          <Property Name="accessTime" Type="datetime2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="pk" />
+          </Key>
+          <Property Name="pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="255" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="255" />
+          <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Token_UserAccount">
+          <End Role="UserAccount" Type="yeoldephotoshoppeModel.Store.UserAccount" Multiplicity="1" />
+          <End Role="Token" Type="yeoldephotoshoppeModel.Store.Token" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAccount">
+              <PropertyRef Name="pk" />
+            </Principal>
+            <Dependent Role="Token">
+              <PropertyRef Name="userFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="yeoldephotoshoppeModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="yeoldephotoshoppeEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="UserAccounts" EntityType="yeoldephotoshoppeModel.UserAccount" />
+          <EntitySet Name="Tokens" EntityType="yeoldephotoshoppeModel.Token" />
+          <AssociationSet Name="FK_Token_UserAccount" Association="yeoldephotoshoppeModel.FK_Token_UserAccount">
+            <End Role="UserAccount" EntitySet="UserAccounts" />
+            <End Role="Token" EntitySet="Tokens" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="UserAccount">
+          <Key>
+            <PropertyRef Name="pk" />
+          </Key>
+          <Property Name="pk" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="firstName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="lastName" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Tokens" Relationship="yeoldephotoshoppeModel.FK_Token_UserAccount" FromRole="UserAccount" ToRole="Token" />
+        </EntityType>
+        <EntityType Name="Token">
+          <Key>
+            <PropertyRef Name="pk" />
+          </Key>
+          <Property Type="Int32" Name="pk" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="hash" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="userFk" Nullable="false" />
+          <NavigationProperty Name="UserAccount" Relationship="yeoldephotoshoppeModel.FK_Token_UserAccount" FromRole="Token" ToRole="UserAccount" />
+          <Property Type="DateTime" Name="accessTime" Nullable="false" Precision="7" />
+        </EntityType>
+        <Association Name="FK_Token_UserAccount">
+          <End Type="yeoldephotoshoppeModel.UserAccount" Role="UserAccount" Multiplicity="1" />
+          <End Type="yeoldephotoshoppeModel.Token" Role="Token" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAccount">
+              <PropertyRef Name="pk" />
+            </Principal>
+            <Dependent Role="Token">
+              <PropertyRef Name="userFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="yeoldephotoshoppeModelStoreContainer" CdmEntityContainer="yeoldephotoshoppeEntities">
+          <EntitySetMapping Name="UserAccounts">
+            <EntityTypeMapping TypeName="yeoldephotoshoppeModel.UserAccount">
+              <MappingFragment StoreEntitySet="UserAccount">
+                <ScalarProperty Name="pk" ColumnName="pk" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tokens">
+            <EntityTypeMapping TypeName="yeoldephotoshoppeModel.Token">
+              <MappingFragment StoreEntitySet="Token">
+                <ScalarProperty Name="accessTime" ColumnName="accessTime" />
+                <ScalarProperty Name="userFk" ColumnName="userFk" />
+                <ScalarProperty Name="hash" ColumnName="hash" />
+                <ScalarProperty Name="pk" ColumnName="pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

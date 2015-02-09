@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="yeoldephotoshoppeModelStoreContainer" CdmEntityContainer="yeoldephotoshoppeEntities">
+    <EntitySetMapping Name="UserAccounts">
+      <EntityTypeMapping TypeName="yeoldephotoshoppeModel.UserAccount">
+        <MappingFragment StoreEntitySet="UserAccount">
+          <ScalarProperty Name="pk" ColumnName="pk" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tokens">
+      <EntityTypeMapping TypeName="yeoldephotoshoppeModel.Token">
+        <MappingFragment StoreEntitySet="Token">
+          <ScalarProperty Name="accessTime" ColumnName="accessTime" />
+          <ScalarProperty Name="userFk" ColumnName="userFk" />
+          <ScalarProperty Name="hash" ColumnName="hash" />
+          <ScalarProperty Name="pk" ColumnName="pk" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

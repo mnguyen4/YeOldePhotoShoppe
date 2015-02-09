@@ -1,0 +1,19 @@
+﻿.dialog2columns {
+    width: 50%;
+    margin: 0px auto;
+}
+
+.dialog2columns td {
+    width: 50%;
+}
+
+.dialog2columns span {
+    font-weight: bold;
+    text-align: center;
+}
+
+.centered-content {
+    width: 50%;
+    margin: 0px auto;
+    text-align: center;
+}

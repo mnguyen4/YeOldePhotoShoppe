@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0">
+  <Operation Name="Rename Refactor" Key="e6c5dc75-b7d3-4cf5-ac0b-b10f303f0787" ChangeDateTime="11/20/2014 04:02:26" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[userAccount].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[userAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="pk" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d22e2daf-6b43-4eb0-a16c-53ba758255e3" ChangeDateTime="12/12/2014 04:59:49" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[Token].[Hash]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Token]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="hash" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="01f16f0f-07ba-4ffc-938b-a03914891014" ChangeDateTime="12/12/2014 05:00:19" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[Token].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Token]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="pk" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="32136087-630a-471a-8c20-b97ab18cf7b5" ChangeDateTime="12/12/2014 05:17:23" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[Token].[IX_Token_pk]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[Token]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_Token_Clustered]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c97c035e-8dd5-445e-9e69-bfa24e4414f4" ChangeDateTime="12/12/2014 05:18:58" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[UserAccount].[IX_UserAccount_username]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[UserAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_UserAccount_NonClustered]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="136afa2e-77c3-459e-a8cb-9f1c34942396" ChangeDateTime="12/12/2014 05:19:10" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[UserAccount].[IX_UserAccount_pk]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[UserAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_UserAccount_Clustered]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fba6f49b-d153-4cbc-b9ec-0e83781a770a" ChangeDateTime="12/12/2014 05:31:28" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+    <Property Name="ElementName" Value="[dbo].[AK_UserAccount_username]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[UserAccount]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[AK_UserAccount_Username]" />
+  </Operation>
+</Operations>

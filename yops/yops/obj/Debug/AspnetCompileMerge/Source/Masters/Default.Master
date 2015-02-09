@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="yops.Masters.Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title><asp:ContentPlaceHolder ID="TitleContent" runat="server"></asp:ContentPlaceHolder></title>
+
+        <!-- Common scripts -->
+        <link rel="stylesheet" href="/yops/CSS/jquery/jquery-mobile/jquery.mobile-1.4.5.min.css" />
+        <script type="text/javascript" src="/yops/JS/jquery/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/yops/JS/jquery/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="/yops/JS/jquery/jquery-cookie/jquery.cookie.js"></script>
+
+        <script type="text/javascript">
+            $(window).load(function () {
+                $("#<%= PageForm.ClientID %>").submit(function (e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
+        </script>
+
+        <asp:ContentPlaceHolder ID="ScriptContent" runat="server"></asp:ContentPlaceHolder>
+    </head>
+    <body>
+        <form id="PageForm" runat="server">
+            <div data-role="page" id="DefaultPage">
+                <div data-role="header">
+                    <asp:ContentPlaceHolder ID="HeaderContent" runat="server"></asp:ContentPlaceHolder>
+                </div>
+                <div data-role="main" class="ui-content">
+                    <asp:ContentPlaceHolder ID="BodyContent" runat="server"></asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

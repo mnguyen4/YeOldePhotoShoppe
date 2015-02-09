@@ -1,0 +1,18 @@
+C:\Users\Administrator\documents\visual studio 2012\Projects\yops_lib\yops_lib\bin\Debug\yops_lib.dll.config
+C:\Users\Administrator\documents\visual studio 2012\Projects\yops_lib\yops_lib\bin\Debug\yops_lib.dll
+C:\Users\Administrator\documents\visual studio 2012\Projects\yops_lib\yops_lib\bin\Debug\yops_lib.pdb
+C:\Users\Administrator\documents\visual studio 2012\Projects\yops_lib\yops_lib\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\documents\visual studio 2012\Projects\yops_lib\yops_lib\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Administrator\documents\visual studio 2012\Projects\yops_lib\yops_lib\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\documents\visual studio 2012\Projects\yops_lib\yops_lib\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Administrator\documents\visual studio 2012\Projects\yops_lib\yops_lib\obj\Debug\yops_lib.dll
+C:\Users\Administrator\documents\visual studio 2012\Projects\yops_lib\yops_lib\obj\Debug\yops_lib.pdb
+E:\Personal\yops_lib\yops_lib\bin\Debug\yops_lib.dll.config
+E:\Personal\yops_lib\yops_lib\bin\Debug\yops_lib.dll
+E:\Personal\yops_lib\yops_lib\bin\Debug\yops_lib.pdb
+E:\Personal\yops_lib\yops_lib\bin\Debug\Newtonsoft.Json.dll
+E:\Personal\yops_lib\yops_lib\bin\Debug\System.Net.Http.Formatting.dll
+E:\Personal\yops_lib\yops_lib\bin\Debug\Newtonsoft.Json.xml
+E:\Personal\yops_lib\yops_lib\bin\Debug\System.Net.Http.Formatting.xml
+E:\Personal\yops_lib\yops_lib\obj\Debug\yops_lib.dll
+E:\Personal\yops_lib\yops_lib\obj\Debug\yops_lib.pdb

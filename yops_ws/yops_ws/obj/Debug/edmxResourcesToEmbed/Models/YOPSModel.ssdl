@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="yeoldephotoshoppeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="yeoldephotoshoppeModelStoreContainer">
+    <EntitySet Name="Token" EntityType="yeoldephotoshoppeModel.Store.Token" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserAccount" EntityType="yeoldephotoshoppeModel.Store.UserAccount" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Token_UserAccount" Association="yeoldephotoshoppeModel.Store.FK_Token_UserAccount">
+      <End Role="UserAccount" EntitySet="UserAccount" />
+      <End Role="Token" EntitySet="Token" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="pk" />
+    </Key>
+    <Property Name="pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="hash" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="userFk" Type="int" Nullable="false" />
+    <Property Name="accessTime" Type="datetime2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserAccount">
+    <Key>
+      <PropertyRef Name="pk" />
+    </Key>
+    <Property Name="pk" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="255" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="255" />
+    <Property Name="email" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_Token_UserAccount">
+    <End Role="UserAccount" Type="yeoldephotoshoppeModel.Store.UserAccount" Multiplicity="1" />
+    <End Role="Token" Type="yeoldephotoshoppeModel.Store.Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccount">
+        <PropertyRef Name="pk" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="userFk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
